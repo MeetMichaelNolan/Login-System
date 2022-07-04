@@ -6,8 +6,8 @@
 
 import time
 
-employee_ID = {76090688: 'Sydney6!'}
-employee_email = {'michael.nolan@wakegov.com': 'Sydney6!'}
+employee_ID = {76090688: 'dogLover212'}
+employee_email = {'michael.nolan@wakegov.com': 'dogLover212'}
 
 
 def get_username():
