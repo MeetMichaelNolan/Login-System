@@ -83,3 +83,5 @@ def login():
             return "Login Successful."
         else:
             return f"Login unsuccessful. {un} or password was incorrect."
+            
+print(login())
