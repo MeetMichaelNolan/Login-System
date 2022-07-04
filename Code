@@ -1,0 +1,85 @@
+#
+# Michael Nolan
+# 4 July 2022
+# Employee Database Application
+#
+
+import time
+
+employee_ID = {76090688: 'Sydney6!'}
+employee_email = {'michael.nolan@wakegov.com': 'Sydney6!'}
+
+
+def get_username():
+
+    while True:
+        username = input("Enter Employee ID or Email: ").lower()
+
+        if username == 'q':
+            quit()
+        elif '@' in username and '.' in username:
+            un = 'Email'
+            return username, un
+        elif username.isdigit():
+            username = int(username)
+            un = 'ID'
+            return username, un
+        else:
+            print("Invalid Username. Type 'q' to quit or try again.")
+
+
+def get_password():
+
+    while True:
+        password = input("Enter Password: ")
+
+        if len(password) > 7:
+            return password
+        else:
+            print(f"Password entered is {7 - len(password)} characters too short of required 7 characters. Try again.")
+
+
+def login():
+
+    print("- - - - - Login - - - - -")
+    print("")
+
+    username, un = get_username()
+    password = get_password()
+
+    print("")
+    print("- - - - - Authentication - - - - -")
+    print("")
+
+    time.sleep(2)
+
+    # Checking if username provided exists
+    if un == 'ID' and username in employee_ID.keys():
+        pass
+    elif un == 'Email' and username in employee_email.keys():
+        pass
+    else:
+        return f"Login unsuccessful. {un} or password was incorrect."
+
+    # Checking if password provided exists
+    if un == 'ID':
+        try:
+            employee_ID[username] == password
+        except:
+            return f"Login unsuccessful. {un} or password was incorrect."
+
+        if employee_ID[username] == password:
+            return "Login Successful."
+        else:
+            return f"Login unsuccessful. {un} or password was incorrect."
+
+    if un == 'Email':
+        try:
+            employee_email[username] == password
+        except:
+            return f"Login unsuccessful. {un} or password was incorrect."
+
+        if employee_email[username] == password:
+            return "Login Successful."
+        else:
+            return f"Login unsuccessful. {un} or password was incorrect."
